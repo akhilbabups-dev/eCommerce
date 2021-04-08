@@ -1,12 +1,15 @@
 import React from 'react';
 import './default.scss';
 import Header from  './components/header';
-import HomePage from './pages/homePage';
+import HomePage from './pages/homepage/homePage';
 function App() {
   return (
     <div className="App">
       <Header/>
-      <HomePage/>
+      <div className="main">
+        <HomePage/>
+      </div>
+      
     </div>
   );
 }
