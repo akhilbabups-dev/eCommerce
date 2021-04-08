@@ -1,0 +1,28 @@
+html{
+    font-size: 10px;
+}
+html,body{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Kiwi Maru', serif;
+    font-size: 18;
+    font-weight: 100;
+    line-height: 2;
+}
+a{
+    text-decoration: none;
+}
+
+a,a:hover{
+    -webkit-transition: all .4s ease-in;
+    -moz-transition: all .4s ease-in;
+    transition: all .4s ease-in;
+}
