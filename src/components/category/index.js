@@ -1,18 +1,19 @@
 import React from 'react';
-import smartphoneimg from './../../assets/smartphones.jpg';
-import earphnoneimg from './../../assets/earphones.jpg';
+import mobilegadgets from './../../assets/mobilegadget.jpg';
+import clothingimg from './../../assets/clothing.jpg';
 import './styles.scss';
 const productCategory =props=>{
     return(
         <div className="category">
             <div className="wrap">
-                <div className="item" style={{backgroundImage: `url(${smartphoneimg})`}}>
-                    <a> smartphones</a>
+                <div className="item" style={{backgroundImage: `url(${mobilegadgets})`}}>
+                    <a className="texts"> smartphones and gadgets</a>
                 </div>
 
-                <div className="item" style={{backgroundImage: `url(${earphnoneimg})`}}>
-                    <a> earphones</a>
+                <div className="item" style={{backgroundImage: `url(${clothingimg})`}}>
+                    <a className="texts"> fashion</a>
                 </div>
+                
                 
             </div>
             
