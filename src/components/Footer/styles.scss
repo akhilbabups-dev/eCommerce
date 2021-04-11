@@ -1,0 +1,16 @@
+.footer{
+    height: 30px;
+    box-shadow: 12px 0px 4px 0 rgba(216, 206, 206, 0.89);
+    .wrap{
+        max-width: 100%;
+        position: relative;
+        margin: 0px 220px 10px;
+        .p{
+            position: absolute;
+            padding-top: 30;
+            -webkit-transform: translateY(-150%);
+            -moz-transform: translateY(-150%);
+            transform: translateY(-150%); 
+        }
+    }
+}
