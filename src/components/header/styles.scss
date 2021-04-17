@@ -23,8 +23,8 @@
     }
     .register{
         position: absolute;
-        right: 70px;
-        top: 9%;
+        right: 200px;
+        top: 10%;
         -webkit-transform: translateY(-50%);
         -moz-transform: translateY(-50%);
         transform: translateY(-50%);
@@ -34,6 +34,11 @@
         }
         li{
             list-style-type: none;
+            display: inline-block;
+            margin-right: 20px;
+            &:last-child{
+                margin-right: 0%;
+            }
         }
         a{
             font-size: 18px;
@@ -42,6 +47,11 @@
             text-decoration: none;
             text-transform: uppercase;
         }
+        span{
+            cursor: pointer;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
     }
-    
+      
 }
