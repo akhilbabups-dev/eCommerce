@@ -33,3 +33,8 @@ export const handleUserProfile = async (userAuth, additionalData) =>{
     return userRef;
 }
 
+//sign in with facebook
+const fbProvider=new firebase.auth.FacebookAuthProvider();
+fbProvider.setCustomParameters({prompt:'select_account'});
+export const signInWithFacebook=()=>{auth.signInWithPopup(fbProvider)}
+

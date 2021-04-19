@@ -49,14 +49,14 @@ class App extends Component {
         <div className="main">
           <Switch>
             <Route exact path="/" component={HomePage}/>
-            <Route path="/registration" component={Registration}/>
-             {currentUser &&(
+            {currentUser &&(
               <Redirect to='/'/>
             )}
+            <Route exact path='/login' component={Login}/>
+            <Route path="/registration" component={Registration}/>
+             
             
-            {!currentUser &&(
-              <Route path="/login" component={Login}/>
-            )}
+            
             </Switch>
         </div>
         <Footer/>
