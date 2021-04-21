@@ -7,6 +7,7 @@ import {Route,Switch,Redirect} from 'react-router-dom';
 import Footer from './components/Footer';
 import Login from './pages/Login';
 import {auth, handleUserProfile} from './Firebase/Utils';
+import Recovery from './pages/Recovery';
 
 const initialState={
   currentUser:null
@@ -53,10 +54,8 @@ class App extends Component {
               <Redirect to='/'/>
             )}
             <Route exact path='/login' component={Login}/>
-            <Route path="/registration" component={Registration}/>
-             
-            
-            
+            <Route path="/registration" component={Registration}/>           
+            <Route exact path='/recovery' component={Recovery}/>            
             </Switch>
         </div>
         <Footer/>

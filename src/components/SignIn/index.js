@@ -3,6 +3,8 @@ import './styles.scss';
 import {signInWithGoogle,signInWithFacebook, auth} from './../../Firebase/Utils';
 import { Component } from 'react';
 import FormInput from '../Forms/formInput';
+import AuthWrapper from '../AuthWrapper';
+import { Link } from 'react-router-dom';
 
 const initialState={
     email:'',
@@ -36,10 +38,11 @@ class Signin extends Component{
 
     render(){
         const{email,password}=this.state;
+        const configAuthWrapper={
+            headLine:'Sign In'
+        }
         return(
-            <div className='signin'>
-                <div className='wrap'>
-                    <h2>sign in</h2>
+            <AuthWrapper{...configAuthWrapper}>
                     <div className="formwrap">
                         <form onSubmit={this.handlesubmit}>
                             <FormInput
@@ -57,6 +60,10 @@ class Signin extends Component{
                             onChange={this.handleChange}
                             />
                             <button className='btn'> Login</button>
+                            <div className='links'>
+                                <Link to='/recovery'>forgot password</Link>
+                            </div>
+                            
                             <div className="socialSignIn">
                                 <div className='row'>
                                    <Button onClick={signInWithGoogle}>
@@ -72,8 +79,7 @@ class Signin extends Component{
                             </div>
                         </form>
                     </div>
-                </div>
-            </div>
+            </AuthWrapper>   
         )
     }
     

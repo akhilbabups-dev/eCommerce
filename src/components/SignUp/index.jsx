@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './styles.scss';
 import FormInput from './../Forms/formInput';
 import {auth,firestore, handleUserProfile} from './../../Firebase/Utils';
+import AuthWrapper from '../AuthWrapper';
 const initialState={
     displayName:'',
     email:'',
@@ -67,71 +68,68 @@ export default class Signup extends Component {
 
     render() {
         const{displayName,email,password,rePassword,passwordError,emptyName,invlidMail}=this.state;
+        const configAuthWrapper={
+            headLine:'Sign UP'
+        }
         return (
-            <div className='signup'>
-                <div className='wrap' >
-                    <h2>Sign Up</h2>
+           <AuthWrapper{...configAuthWrapper}>
+                <div className='formwrap'>
                     {emptyName.length>0&&(
-                        <ul>
-                            {emptyName.map((err,index)=>{
-                                return(
-                                    <li key={index }>
-                                        {err}
-                                    </li>
-                                )
-                            })}
-                        </ul>
+                    <ul>
+                        {emptyName.map((err,index)=>{
+                            return(
+                                <li key={index }>
+                                    {err}
+                                </li>
+                            )
+                        })}
+                    </ul>
                     )}
                     {passwordError.length>0&&(
-                        <ul>
-                            {passwordError.map((err,index)=>{
-                                return(
-                                    <li key={index }>
-                                        {err}
-                                    </li>
-                                )
-                            })}
-                        </ul>
+                    <ul>
+                        {passwordError.map((err,index)=>{
+                            return(
+                                <li key={index }>
+                                    {err}
+                                </li>
+                            )
+                        })}
+                    </ul>
                     )}
-
-
-
-                    <div className='formwrap'>
-                        <form onSubmit={this.handleSubmit}>
-                            <FormInput
-                                type='text'
-                                name='displayName'
-                                value={displayName}
-                                placeholder='Enter Full Name'
-                                onChange={this.handleChange}
-                            />
-                            <FormInput
-                                type='email'
-                                name='email'
-                                value={email}
-                                placeholder='E-mail address'
-                                onChange={this.handleChange}
-                            />  
-                            <FormInput
-                                type='password'
-                                name='password'
-                                value={password}
-                                placeholder='Enter password'
-                                onChange={this.handleChange}
-                            />   
-                            <FormInput
-                                type='password'
-                                name='rePassword'
-                                value={rePassword}
-                                placeholder='Re-Enter password'
-                                onChange={this.handleChange}
-                            />
-                            <button className='btn'>Register</button>
-                                                    
-                        </form>           
-                    </div>
+                    <form onSubmit={this.handleSubmit}>
+                        <FormInput
+                            type='text'
+                            name='displayName'
+                            value={displayName}
+                            placeholder='Enter Full Name'
+                            onChange={this.handleChange}
+                        />
+                        <FormInput
+                            type='email'
+                            name='email'
+                            value={email}
+                            placeholder='E-mail address'
+                            onChange={this.handleChange}
+                        />  
+                        <FormInput
+                            type='password'
+                            name='password'
+                            value={password}
+                            placeholder='Enter password'
+                            onChange={this.handleChange}
+                        />   
+                        <FormInput
+                            type='password'
+                            name='rePassword'
+                            value={rePassword}
+                            placeholder='Re-Enter password'
+                            onChange={this.handleChange}
+                        />
+                        <button className='btn'>Register</button>
+                                                
+                    </form>           
                 </div>
-            </div>
+            </AuthWrapper>
         )
     }
 }
