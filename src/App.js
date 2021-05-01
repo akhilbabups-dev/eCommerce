@@ -8,18 +8,13 @@ import Footer from './components/Footer';
 import Login from './pages/Login';
 import {auth, handleUserProfile} from './Firebase/Utils';
 import Recovery from './pages/Recovery';
+import {setCurrentUser} from './Redux/User/user.actions';
+import {connect} from 'react-redux'
 
-const initialState={
-  currentUser:null
-};
+
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      ...initialState
-    }
-  }
+  
   authListener=null;
 
   componentDidMount(){
@@ -27,12 +22,12 @@ class App extends Component {
       if(userAuth){
         const userRef = await handleUserProfile(userAuth);
         userRef.onSnapshot(snapshot=>{
-          this.setState({currentUser:{
+          this.props.setCurrentUser({
             id:snapshot.id, ...snapshot.data()
-          }})
+          })
         })
       }
-      this.setState({...initialState})
+      this.props.setCurrentUser(userAuth);
     })
   }
 
@@ -43,10 +38,10 @@ class App extends Component {
 
 
   render(){
-    const {currentUser}=this.state;
+    const {currentUser}=this.props;
     return (
       <div className="App">
-        <Header currentUser={currentUser}/>
+        <Header />
         <div className="main">
           <Switch>
             <Route exact path="/" component={HomePage}/>
@@ -65,4 +60,10 @@ class App extends Component {
   
 }
 
-export default App;
+const mapStateToProps=({user})=>{
+  currentUser: user.currentUser;
+}
+const mapDispatchToProps=dispatch=>({
+  setCurrentUser: user=>dispatch(setCurrentUser(user))
+})
+export default connect(mapStateToProps,mapDispatchToProps) (App);
